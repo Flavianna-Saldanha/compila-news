@@ -1,2 +1,2 @@
-# compila-news
-Um compilador de notícias e conteúdos relevantes da comunidade tech, inspirado e alimentado pela arquitetura do TabNews.
+# Compila News
+*CompilaNews* é uma plataforma aberta de curadoria e agregação de conteúdos voltada para tecnologia e programação. Construído sobre a base do TabNews, o projeto utiliza a mesma arquitetura para coletar, filtrar e apresentar os artigos e discussões mais relevantes da comunidade, eliminando ruídos e facilitando a leitura diária.
