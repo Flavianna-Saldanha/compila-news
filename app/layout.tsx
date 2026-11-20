@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Hello World!",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <body style={{ margin: 0, fontFamily: "Arial, sans-serif" }}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
