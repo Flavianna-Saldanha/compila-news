@@ -1,3 +1,19 @@
+:root {
+  --bg: #f5f1e8;
+  --bg-accent: #efe2c8;
+  --text: #1e1b16;
+  --muted: #5f5648;
+  --card: rgba(255, 252, 246, 0.82);
+  --border: rgba(30, 27, 22, 0.12);
+  --accent: #b45309;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
@@ -5,18 +21,134 @@ body {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(180, 83, 9, 0.12), transparent 30%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-accent) 100%);
+  overflow-x: hidden;
 }
 
-main {
+main.construction {
+  position: relative;
   display: grid;
   min-height: 100vh;
+  min-height: 100dvh;
   place-items: center;
+  padding: clamp(1rem, 4vw, 2rem);
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
-h1 {
-  margin: 0;
-  font-size: clamp(3rem, 12vw, 8rem);
+.construction-card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 48rem);
+  padding: clamp(1.5rem, 5vw, 4rem);
   text-align: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  box-shadow: 0 24px 60px rgba(30, 27, 22, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  color: var(--accent);
+}
+
+.construction-card h1 {
+  margin: 0;
+  font-size: clamp(2rem, 10vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.description {
+  margin: 1.5rem auto 0;
+  max-width: 38rem;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--muted);
+  overflow-wrap: break-word;
+}
+
+.commits {
+  margin: 2rem 0 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.95rem;
+  color: var(--muted);
+  overflow-wrap: break-word;
+}
+
+.commits strong {
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.repo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fffaf3;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+.repo-button:hover {
+  background: #92400e;
+  box-shadow: 0 10px 24px rgba(180, 83, 9, 0.28);
+  transform: translateY(-1px);
+}
+
+.repo-button:focus-visible {
+  outline: 3px solid rgba(180, 83, 9, 0.35);
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .construction-card {
+    border-radius: 1rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .construction-card h1 {
+    font-size: clamp(1.75rem, 9.5vw, 3rem);
+    line-height: 1;
+  }
+
+  .repo-button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .construction-card {
+    backdrop-filter: none;
+  }
+
+  .repo-button {
+    transition: none;
+  }
+
+  .repo-button:hover {
+    transform: none;
+  }
 }
